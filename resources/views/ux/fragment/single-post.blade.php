@@ -32,10 +32,13 @@
                                                 {!! Form::close() !!} 
                                             </div>
                                         </div>
-
+                                        
                                         <div class="post-image">
                                             <a href="single-post.html">
-                                                <img src="https://as.com/betech/imagenes/2018/03/29/portada/1522281389_237096_1522285029_noticia_normal.jpg" width="600px" alt="" />
+
+                                                @foreach ($imagenes as $imagen)
+                                                <img src="{{ $imagen->url }}" width="600px" alt="" />
+                                                @endforeach
                                             </a>
                                         </div>
 
@@ -46,6 +49,14 @@
                                                 {{$post->contenido}}
                                             </p>
                                         </div>
+                                        <div class="conteiner">    
+    
+                                            <a href="{{ route('blog.index') }}" class="btn btn-default">Regresar</a>
+                                            <a href="{{ route('ilustrables_user.create', ['id'=>$post->id, 'type'=>'Post', 'back'=>Request::path() ]) }}"><button class="btn btn-primary btn-md">Agregar Imagen</button></a>
+                                        
+                                        </div>
+                                        
+                                     
 
                                     </div>
                                         
@@ -74,9 +85,13 @@
                                     <div class="post-item">
                                         <a href="{{ route('rols.index') }}">
                                             <div class="post-thumb">
-                                                <img src="img/recent-post-thumb1.jpg" alt="" />
+                                               
                                                 <div class="overlay dark">
-                                                    <span><i class="fa fa-plus"></i></span>
+                                                    <span><i class="fa fa-plus">
+                                                        @if ($post->FotoPost)
+                                                        <img src="{{$post->FotoPost->url}}"  alt="" /> 
+                                                        @endif    
+                                                    </i></span>
                                                 </div>
                                             </div>
                                         </a>

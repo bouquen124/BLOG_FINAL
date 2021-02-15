@@ -23,12 +23,15 @@
                     
                         </div>
 
-                        {!! Form::open(['route' => 'aliado.store']) !!}
+                        {!! Form::open(['route' => 'producto_user.store']) !!}
 
 
                         
                         <!-- Estado Id Field -->
                             {!! Form::select('estado_id', $estados, null, ['class' => 'form-control']) !!}
+
+<br>
+                            {!! Form::select('categoria_id', $categorias, null, ['class' => 'form-control']) !!}
 
                         <!-- User Id Field -->
                             
@@ -38,17 +41,9 @@
 
                             <input type="text" name="nombre" id="nombre" placeholder=" Nombre" />
                         
-                            <input type="text" name="direcion" id="direcion" placeholder="Direcion" />
+             
 
-                            <input type="text" name="correo" id="correo" placeholder="Correo" />
-                            
-                            <input type="text" name="telefono" id="telefono" placeholder="Telefono" />
-                            
-                            <input type="text" name="facebook" id="facebook" placeholder="facebook" />
-                            
-                            <input type="text" name="twitter" id="twitter" placeholder="Twitter" />
-
-                            <input type="text" name="instagram" id="instagram" placeholder="Instagram" />
+                            <input type="text" name="costo" id="costo" placeholder="costo" />
 
                             <textarea name="descripcion" id="descripcion" cols="45" rows="12" placeholder="Descripcion"></textarea>
                            

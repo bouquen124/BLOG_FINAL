@@ -82,14 +82,21 @@
                                         </ul>
                                     </li>
 
-                                    <li class="has-child">
-                                        <a href="classes.html">Classes</a>
+                                    <li class="has-child {{ Request::is('producto_user*') ? 'active' : '' }}">
+                                        <a href="{{ url('/producto_user') }}">Producto</a>
                                         <ul class="child">
-                                           <li><a href="single-classes.html">Single Classes</a></li>
+                                           <li><a href="{{ route('producto_user.create') }}">Producto</a></li>
                                         </ul>
                                     </li>
                                     
-                                    <li><a href="gallery.html">Gallery</a></li>
+                                    
+                                    <li class="has-child {{ Request::is('cliente_user*') ? 'active' : '' }}">
+                                        <a href="{{ url('/cliente_user') }}">clientes</a>
+                                        <ul class="child">
+                                           <li><a href="{{ route('cliente_user.create') }}">Agregar un nuevo cliente</a></li>
+                                        </ul>
+                                    </li>
+                                    
 
                                     <li class="has-child {{ Request::is('blog*') ? 'active' : '' }}">
                                         <a href="{{ url('/blog') }}">Blog</a>

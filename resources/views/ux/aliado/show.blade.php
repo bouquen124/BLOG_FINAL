@@ -11,7 +11,7 @@
 
                         <div class="heading-block wow fadeIn">
                             <br>
-                            <h2>{{ $aliado->nombre }}</h2>
+                            <h2>Nombre:{{ $aliado->nombre }}</h2>
                             
                             <a href="  {{ route('aliado.edit', $aliado->id) }} " >
                                 <h4 class="tagline">
@@ -32,7 +32,11 @@
                                     <div class="feature-icon">
                                         <div>
 
-<img src="{{ $aliado->url }}" alt="" width="30">
+                                            @foreach ($imagenes as $item)
+                                            <img src="{{ $item->url }}" alt="" width="500">
+                                            @endforeach
+
+                                           
 
                                         </div>
                                     </div>
@@ -41,14 +45,14 @@
 
                                     <div class="feature-desc">
                         
-                                        <h4>{{ $aliado->direccion }} </h4>    
-                                        <h4>{{ $aliado->correo }} </h4>    
-                                        <h4>{{ $aliado->telefono }} </h4>   
-                                        <h4>{{ $aliado->facebook }} <br> <br> {{ $aliado->twitter }} <br> <br> {{ $aliado->instagram }}</h4> 
+                                        <h4>Direcion: {{ $aliado->direccion }} </h4>    
+                                        <h4>Correo:  {{ $aliado->correo }} </h4>    
+                                        <h4>Telefono:  {{ $aliado->telefono }} </h4>   
+                                        <h4>Facebook:    {{ $aliado->facebook }} <br> <br>Twiter: {{ $aliado->twitter }} <br> <br>Instagram: {{ $aliado->instagram }}</h4> 
                                             
                                             
                                         <div style="float: left; width: 100%;"> 
-                                            <p>{{ $aliado->descripcion }} </p>
+                                            <p>Descripcion:{{ $aliado->descripcion }} </p>
                                         </div>            
                                     
                                     </div>
@@ -61,9 +65,16 @@
                             {!! Form::close() !!}    
                             
 
+                            <a href="{{ route('aliado.index') }}" class="btn btn-default">Regresar</a>
+                            <a href="{{ route('ilustrables_user.create', ['id'=>$aliado->id, 'type'=>'Aliado', 'back'=>Request::path() ]) }}"><button class="btn btn-primary btn-md">Agregar Imagen</button></a>
+
                         </div>
                     </div>
+
+                       
+                   
                 </div>
                 <!-- FEATURES SECTION END -->
+                
     
 @endsection

@@ -70,4 +70,10 @@ class Cliente extends Model
     }
 
     
+
+    public function Fotocliente()
+{
+    return $this->morphOne(Ilustrable::class,'Ilustrable');
+}
+
 }

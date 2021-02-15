@@ -13,6 +13,9 @@ use App\Models\Estado;
 use App\Models\Post;
 use App\User;
 
+use App\Models\Ilustrable;
+
+
 class PostUserController extends AppBaseController
 {
     /** @var  PostRepository */
@@ -32,6 +35,7 @@ class PostUserController extends AppBaseController
      */
     public function index(Request $request)
     {
+        
 
         $posts = Post::orderby('id','desc')->paginate(4);
         //$post = Post::find($id);
@@ -92,7 +96,8 @@ class PostUserController extends AppBaseController
         $primer_post = Post::get()->take(1);
         $post = Post::find($id);
         $post_derecha = Post::get()->take(4);
-        return view('ux.post.show', compact('post','post_derecha', 'primer_post'));
+        $imagenes = Ilustrable::where('ilustrable_id', $id)->where('ilustrable_type', 'App\Models\Post')->paginate(20);
+        return view('ux.post.show', compact('post','post_derecha', 'primer_post','imagenes'));
 
 
         /* $post = $this->postRepository->find($id);
@@ -177,4 +182,9 @@ class PostUserController extends AppBaseController
 
         return redirect(route('blog.index'));
     }
+
+
+  
+
+
 }

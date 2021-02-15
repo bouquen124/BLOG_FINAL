@@ -14,7 +14,8 @@
 
                             <!-- SINGLE POST START
                             ============================================= -->
-
+                      
+                
                             
                             <div class="single-post col-md-8 wow fadeIn">
                                 @foreach ($posts as $post)
@@ -23,7 +24,11 @@
                                 <article class="post-item">
                                     <div class="post-image">
                                         <a href="{{ route('blog.show', $post->id) }}">
-                                            <img src="https://as.com/betech/imagenes/2018/03/29/portada/1522281389_237096_1522285029_noticia_normal.jpg" width="370px" alt="" />
+                                            @if ($post->FotoPost)
+                                            <img src="{{$post->FotoPost->url}}" width="370px" alt="" /> 
+                                            @endif
+                                          
+                                            
                                         </a>
                                     </div>
 

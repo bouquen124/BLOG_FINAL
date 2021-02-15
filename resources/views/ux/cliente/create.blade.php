@@ -1,6 +1,6 @@
 @extends('ux.root')
 
-@section('createproducto')
+@section('createAliado')
 
     <!-- CONTENT START
                     ============================================= -->
@@ -9,7 +9,7 @@
         <div class="grey-background wow fadeIn">
             <div class="container">
                 <div class="heading-block page-title wow fadeInUp">
-                    <h1>Nuevo Aliado</h1>
+                    <h1>Nuevo Cliente</h1>
                 </div>
             </div>
             <!-- CONTACT CONTENT START
@@ -23,9 +23,10 @@
                     
                         </div>
 
-                        {!! Form::open(['route' => 'aliado.store']) !!}
+                        {!! Form::open(['route' => 'cliente_user.store']) !!}
 
-
+      <!-- Submit Field -->
+      <div class="form-group col-sm-8">
                         
                         <!-- Estado Id Field -->
                             {!! Form::select('estado_id', $estados, null, ['class' => 'form-control']) !!}
@@ -44,18 +45,11 @@
                             
                             <input type="text" name="telefono" id="telefono" placeholder="Telefono" />
                             
-                            <input type="text" name="facebook" id="facebook" placeholder="facebook" />
-                            
-                            <input type="text" name="twitter" id="twitter" placeholder="Twitter" />
-
-                            <input type="text" name="instagram" id="instagram" placeholder="Instagram" />
-
                             <textarea name="descripcion" id="descripcion" cols="45" rows="12" placeholder="Descripcion"></textarea>
-                           
-
-                        <!-- Submit Field -->
-                        <div class="form-group col-sm-12">
+                        
                             <button class="submit button-normal green">Registrar</button>
+
+                            <a href="{{ route('cliente_user.index') }}" class="btn btn-default">Regresar</a>
                         </div>
 
                         {!! Form::close() !!}

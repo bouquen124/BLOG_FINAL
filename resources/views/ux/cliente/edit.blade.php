@@ -1,6 +1,6 @@
 @extends('ux.root')
 
-@section('createproducto')
+@section('editcliente')
 
     <!-- CONTENT START
                     ============================================= -->
@@ -9,7 +9,7 @@
         <div class="grey-background wow fadeIn">
             <div class="container">
                 <div class="heading-block page-title wow fadeInUp">
-                    <h1>Nuevo Aliado</h1>
+                    <h1>Editar Cliente</h1>
                 </div>
             </div>
             <!-- CONTACT CONTENT START
@@ -23,7 +23,7 @@
                     
                         </div>
 
-                        {!! Form::open(['route' => 'aliado.store']) !!}
+                        {!! Form::model($cliente, ['route' => ['cliente_user.update', $cliente->id], 'method' => 'patch']) !!}
 
 
                         
@@ -36,21 +36,17 @@
 
                             <!-- Estado Id Field -->
 
-                            <input type="text" name="nombre" id="nombre" placeholder=" Nombre" />
+                            <input type="text" value="{{ $cliente->nombre }}" name="nombre" id="nombre" placeholder=" Nombre" />
                         
-                            <input type="text" name="direcion" id="direcion" placeholder="Direcion" />
+                            <input type="text" value="{{ $cliente->direcion }}" name="direcion" id="direcion" placeholder="Direcion" />
 
-                            <input type="text" name="correo" id="correo" placeholder="Correo" />
+                            <input type="text" value="{{ $cliente->correo }}" name="correo" id="correo" placeholder="Correo" />
                             
-                            <input type="text" name="telefono" id="telefono" placeholder="Telefono" />
+                            <input type="text" value="{{ $cliente->telefono }}" name="telefono" id="telefono" placeholder="Telefono" />
                             
-                            <input type="text" name="facebook" id="facebook" placeholder="facebook" />
-                            
-                            <input type="text" name="twitter" id="twitter" placeholder="Twitter" />
+                  
 
-                            <input type="text" name="instagram" id="instagram" placeholder="Instagram" />
-
-                            <textarea name="descripcion" id="descripcion" cols="45" rows="12" placeholder="Descripcion"></textarea>
+                            <textarea value="{{ $cliente->descripcion }}" name="descripcion" id="descripcion" cols="45" rows="12" placeholder="Descripcion">{{ $cliente->descripcion }}</textarea>
                            
 
                         <!-- Submit Field -->

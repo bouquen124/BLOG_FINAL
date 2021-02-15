@@ -53,11 +53,17 @@
                 @yield('editPost')
                 @yield('cotenido_index_post')
 
-                
+            
                 @yield('contenido_aliado_show')
                 @yield('contenido_index_aliado')
                 @yield('createAliado')
                 @yield('editAliado')
+                @yield('content_ilu')
+                @yield('contenido_index_cliente')
+                @yield('contenido_cliente_show')
+                @yield('editcliente')
+                @yield('createproducto')
+                @yield('createproducto')
 
 
             @include('ux.fragment.footer')

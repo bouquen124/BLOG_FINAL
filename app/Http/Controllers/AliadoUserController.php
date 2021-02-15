@@ -11,7 +11,7 @@ use Flash;
 use Response;
 use App\Models\Estado;
 use App\Models\Aliado;
-
+use App\Models\Ilustrable;
 class AliadoUserController extends AppBaseController
 {
     /** @var  AliadoRepository */
@@ -31,15 +31,15 @@ class AliadoUserController extends AppBaseController
      */
     public function index(Request $request)
     {
+
         
         //$posts = Post::orderby('id','desc')->paginate(4);
         //$post = Post::find($id);
         //return view('ux.post.index', compact('posts','post_derecha'));
 
         $aliados = Aliado::orderby('id', 'desc')->paginate(6);
-
-        return view('ux.aliado.index')
-            ->with('aliados', $aliados);
+       
+        return view('ux.aliado.index',compact('aliados','imagenes'));
     }
 
     /**
@@ -84,6 +84,7 @@ class AliadoUserController extends AppBaseController
         $aliados = Aliado::get()->take(6);
         $aliado = $this->aliadoRepository->find($id);
         //$aliados = Aliado::get()->take(4);
+        $imagenes = Ilustrable::where('ilustrable_id', $id)->where('ilustrable_type', 'App\Models\Aliado')->paginate(20);
 
         if (empty($aliados)) {
             Flash::error('Aliado not found');
@@ -91,7 +92,7 @@ class AliadoUserController extends AppBaseController
             return redirect(route('aliado.index'));
         }
 
-        return view('ux.aliado.show', compact('aliado', 'aliados'));
+        return view('ux.aliado.show', compact('aliado', 'aliados','imagenes'));
     }
 
     /**

@@ -73,7 +73,7 @@ public function Autor(){
 
 
 
-public function FotoAliado()
+public function FotoPost()
 {
     return $this->morphOne(Ilustrable::class,'Ilustrable');
 }

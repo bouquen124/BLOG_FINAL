@@ -47,3 +47,10 @@ Route::resource('aliado', 'AliadoUserController')->middleware('auth');
 
 
 Route::resource('ilustrables', 'IlustrableController');
+
+Route::resource('ilustrables_user','IlustrableUserControler');
+
+
+Route::resource('cliente_user' ,'ClienteUserController');
+
+Route::resource('producto_user','ProductoUserController');
