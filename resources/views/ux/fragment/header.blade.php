@@ -74,18 +74,19 @@
                                     
                                     <li class="has-child {{ Request::is('/*') ? 'active' : '' }}">
                                     <a href="{{ url('/') }}">Home</a></li>
-                                    <li class="has-child">
-                                        <a href="#">Page</a>
+
+
+                                    <li class="has-child {{ Request::is('servicio_user*') ? 'active' : '' }}">
+                                        <a href="{{ url('/servicio_user') }}">Servicio</a>
                                         <ul class="child">
-                                           <li><a href="about-us.html">About Us</a></li>
-                                           <li><a href="teacher.html">Teacher</a></li>
+                                           <li><a href="{{ route('servicio_user.create') }}">agregar nuevo servicio</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-child {{ Request::is('producto_user*') ? 'active' : '' }}">
                                         <a href="{{ url('/producto_user') }}">Producto</a>
                                         <ul class="child">
-                                           <li><a href="{{ route('producto_user.create') }}">Producto</a></li>
+                                           <li><a href="{{ route('producto_user.create') }}">agregar nuevo Producto</a></li>
                                         </ul>
                                     </li>
                                     

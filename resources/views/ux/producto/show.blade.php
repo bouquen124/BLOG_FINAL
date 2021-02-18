@@ -34,7 +34,7 @@
 
                                           @foreach ($imagenes as $item)
                                             <img src="{{ $item->url }}" alt="" width="500">
-                                            @endforeach --}}
+                                            @endforeach 
 
                                            
 
@@ -46,7 +46,7 @@
                                     <div class="feature-desc">
                         
                                          
-                                        <h4>Correo:  {{ $producto->costo }} </h4>    
+                                        <h4>precio:  {{ $producto->costo }} </h4>    
                                        
                                       
                                             <h4>Descripcion:{{ $producto->descripcion }} </h4>

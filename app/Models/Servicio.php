@@ -71,4 +71,12 @@ class Servicio extends Model
     public function categoria(){
         return $this->belongsTo(Categoria::class);
     } 
+
+
+
+    public function Fotoservicio()
+    {
+        return $this->morphOne(Ilustrable::class,'Ilustrable');
+    }
+    
 }

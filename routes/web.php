@@ -54,3 +54,5 @@ Route::resource('ilustrables_user','IlustrableUserControler');
 Route::resource('cliente_user' ,'ClienteUserController');
 
 Route::resource('producto_user','ProductoUserController');
+
+Route::resource('servicio_user','ServicioUserController');

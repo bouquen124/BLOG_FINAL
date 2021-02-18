@@ -39,7 +39,7 @@ class AliadoUserController extends AppBaseController
 
         $aliados = Aliado::orderby('id', 'desc')->paginate(6);
        
-        return view('ux.aliado.index',compact('aliados','imagenes'));
+        return view('ux.aliado.index',compact('aliados'));
     }
 
     /**

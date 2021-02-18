@@ -9,7 +9,7 @@
         <div class="grey-background wow fadeIn">
             <div class="container">
                 <div class="heading-block page-title wow fadeInUp">
-                    <h1>Nuevo Producto</h1>
+                    <h1>Nuevo Servicio</h1>
                 </div>
             </div>
             <!-- CONTACT CONTENT START
@@ -23,7 +23,7 @@
                     
                         </div>
 
-                        {!! Form::open(['route' => 'producto_user.store']) !!}
+                        {!! Form::open(['route' => 'servicio_user.store']) !!}
 
 
                         

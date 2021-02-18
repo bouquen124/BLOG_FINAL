@@ -1,35 +1,14 @@
-@section('servicio')
-<!-- BANNER SECTION START
-                ============================================= -->
-                <div class="banner small wow fadeIn">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 pull-left wow fadeInUp">
-                                <div class="row">
-                                    <h1 class="no-margin">Servicios <span class="yellow-text">y Productos</span> </h1>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 wow fadeInUp">
-                                <div class="button-normal white pull-right">
-                                    <a href="https://www.messenger.com/t/EdynoEstudio" class="no-margin">Inscríbelo ahora!</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- BANNER SECTION END -->
-
-                <!-- OUR CLASSES SECTION START
+@section('producto')
+  <!-- OUR CLASSES SECTION START
                 ============================================= -->
                 <div class="our-classes wow fadeIn">
                     <div class="container">
                         <div class="heading-block wow fadeIn">
-                            <h2>Nuestros Servicios</h2>
+                            <h2>Nuestros Productos</h2>
                         </div>
 
 
-                    @foreach ($servicios as $servicio)
+                    @foreach ($productos as $producto)
                         
                             <div class="classes">
 
@@ -45,9 +24,9 @@
 
                                             <div class="class-details">
                                                 <div class="class-desc">
-                                                    <h4>{{ $servicio->nombre }}</h4>
-                                                    <p class="class-category">{{ $servicio->descripcion }}</p>
-                                                    <p class="class-date">Modelado introductor</p>
+                                                    <h4>{{ $producto->nombre }}</h4>
+                                                    <p class="class-category">{{ $producto->descripcion }}</p>
+                                                    <p class="class-date">Modelado introductorio de personajes en 3D en el programa Blender.</p>
                                                 </div>
 
                                                 <div class="class-type">
