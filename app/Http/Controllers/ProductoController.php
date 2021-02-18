@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Estado;
+use App\Models\Ilustrable;
 
 class ProductoController extends AppBaseController
 {
@@ -82,8 +83,9 @@ class ProductoController extends AppBaseController
 
             return redirect(route('productos.index'));
         }
+        $imagenes = Ilustrable::where('ilustrable_id', $id)->where('ilustrable_type', 'App\Models\Producto')->paginate(20);
 
-        return view('productos.show')->with('producto', $producto);
+        return view('productos.show',compact('producto','imagenes'));
     }
 
     /**
@@ -95,6 +97,8 @@ class ProductoController extends AppBaseController
      */
     public function edit($id)
     {
+        $estados =Estado::pluck('nombre','id');
+        $categorias=Categoria::pluck('nombre','id');
         $producto = $this->productoRepository->find($id);
 
         if (empty($producto)) {
@@ -103,7 +107,7 @@ class ProductoController extends AppBaseController
             return redirect(route('productos.index'));
         }
 
-        return view('productos.edit')->with('producto', $producto);
+        return view('productos.edit',compact('estados','categorias','producto'));
     }
 
     /**

@@ -1,42 +1,49 @@
-<!-- Estado Id Field -->
-<div class="form-group">
-    {!! Form::label('estado_id', 'Estado Id:') !!}
-    <p>{{ $servicio->estado_id }}</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Estado Id</th>
+            <th>Categoria Id</th>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th>costo</th>
+ 
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>{{ $servicio->estado_id }}</td>
+        <td>{{ $servicio->categoria_id }}</td>
+        <td>{{ $servicio->nombre }}</td>
+        <td>{{ substr($servicio->descripcion, 0,20) }}...</td>
+        <td>{{$servicio->costo }}</td>
+        
+        </tr>
+    </tbody>
+</table>
+
+<div class="conteiner">    
+    
+    <a href="{{ route('servicios.index') }}" class="btn btn-default">Regresar</a>
+    <a href="{{ route('ilustrables.create', ['id'=>$servicio->id, 'type'=>'Servicio', 'back'=>Request::path() ]) }}"><button class="btn btn-primary btn-md">Agregar Imagen</button></a>
+
 </div>
 
-<!-- Categoria Id Field -->
-<div class="form-group">
-    {!! Form::label('categoria_id', 'Categoria Id:') !!}
-    <p>{{ $servicio->categoria_id }}</p>
-</div>
+<table class="table" style="margin-top:100px">
 
-<!-- Nombre Field -->
-<div class="form-group">
-    {!! Form::label('nombre', 'Nombre:') !!}
-    <p>{{ $servicio->nombre }}</p>
-</div>
-
-<!-- Descripcion Field -->
-<div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
-    <p>{{ $servicio->descripcion }}</p>
-</div>
-
-<!-- Costo Field -->
-<div class="form-group">
-    {!! Form::label('costo', 'Costo:') !!}
-    <p>{{ $servicio->costo }}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{{ $servicio->created_at }}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{{ $servicio->updated_at }}</p>
-</div>
-
+    <thead>
+        <tr>
+            <th>Imagen id</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($imagenes as $imagen)
+            <tr>
+                <td>{{ $imagen->id }}</td>
+                <td>
+                    <img src="{{ $imagen->url }}" alt="" width="80px">
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>

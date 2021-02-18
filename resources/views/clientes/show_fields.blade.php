@@ -1,48 +1,58 @@
 <!-- Estado Id Field -->
-<div class="form-group">
+{{-- <div class="form-group">
     {!! Form::label('estado_id', 'Estado Id:') !!}
-    <p>{{ $cliente->estado_id }}</p>
+    <p>{{ $aliados->estado_id }}</p>
+</div> --}}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Estado Id</th>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th>Direcion</th>
+    <th>Correo</th>
+    <th>Telefono</th>
+ 
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>{{ $cliente->estado_id }}</td>
+        <td>{{ $cliente->nombre }}</td>
+        <td>{{ substr($cliente->descripcion, 0,20) }}...</td>
+        <td>{{ $cliente->direcion }}</td>
+        <td>{{ $cliente->correo }}</td>
+        <td>{{ $cliente->telefono }}</td>
+ 
+        </tr>
+    </tbody>
+</table>
+
+<div class="conteiner">    
+    
+    <a href="{{ route('clientes.index') }}" class="btn btn-default">Regresar</a>
+    <a href="{{ route('ilustrables.create', ['id'=>$cliente->id, 'type'=>'Cliente', 'back'=>Request::path() ]) }}"><button class="btn btn-primary btn-md">Agregar Imagen</button></a>
+
 </div>
 
-<!-- Nombre Field -->
-<div class="form-group">
-    {!! Form::label('nombre', 'Nombre:') !!}
-    <p>{{ $cliente->nombre }}</p>
-</div>
+<table class="table" style="margin-top:100px">
 
-<!-- Descripcion Field -->
-<div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
-    <p>{{ $cliente->descripcion }}</p>
-</div>
-
-<!-- Direcion Field -->
-<div class="form-group">
-    {!! Form::label('direcion', 'Direcion:') !!}
-    <p>{{ $cliente->direcion }}</p>
-</div>
-
-<!-- Correo Field -->
-<div class="form-group">
-    {!! Form::label('correo', 'Correo:') !!}
-    <p>{{ $cliente->correo }}</p>
-</div>
-
-<!-- Telefono Field -->
-<div class="form-group">
-    {!! Form::label('telefono', 'Telefono:') !!}
-    <p>{{ $cliente->telefono }}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{{ $cliente->created_at }}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{{ $cliente->updated_at }}</p>
-</div>
-
+    <thead>
+        <tr>
+            <th>Imagen id</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($imagenes as $imagen)
+            <tr>
+                <td>{{ $imagen->id }}</td>
+                <td>
+                    <img src="{{ $imagen->url }}" alt="" width="80px">
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>

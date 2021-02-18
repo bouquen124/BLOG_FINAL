@@ -3,7 +3,6 @@
 
 @section('contenidohome')
 
-@include('ux.fragment.single-home')
-@yield('home')
+
     
 @endsection

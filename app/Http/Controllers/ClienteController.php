@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Estado;
+use App\Models\Ilustrable;
 class ClienteController extends AppBaseController
 {
     /** @var  ClienteRepository */
@@ -80,8 +81,8 @@ class ClienteController extends AppBaseController
 
             return redirect(route('clientes.index'));
         }
-
-        return view('clientes.show')->with('cliente', $cliente);
+        $imagenes = Ilustrable::where('ilustrable_id', $id)->where('ilustrable_type', 'App\Models\Cliente')->paginate(20);
+        return view('clientes.show',compact('cliente','imagenes'));
     }
 
     /**
@@ -93,6 +94,8 @@ class ClienteController extends AppBaseController
      */
     public function edit($id)
     {
+
+        $estados =Estado::pluck('nombre','id');
         $cliente = $this->clienteRepository->find($id);
 
         if (empty($cliente)) {
@@ -101,7 +104,7 @@ class ClienteController extends AppBaseController
             return redirect(route('clientes.index'));
         }
 
-        return view('clientes.edit')->with('cliente', $cliente);
+        return view('clientes.edit',compact('cliente','estados'));
     }
 
     /**

@@ -11,6 +11,7 @@ use Flash;
 use Response;
 use App\Models\Estado;
 use App\Models\Categoria;
+use App\Models\Ilustrable;
 class ServicioController extends AppBaseController
 {
     /** @var  ServicioRepository */
@@ -82,8 +83,8 @@ class ServicioController extends AppBaseController
 
             return redirect(route('servicios.index'));
         }
-
-        return view('servicios.show')->with('servicio', $servicio);
+        $imagenes = Ilustrable::where('ilustrable_id', $id)->where('ilustrable_type', 'App\Models\Servicio')->paginate(20);
+        return view('servicios.show',compact('servicio','imagenes'));
     }
 
     /**
@@ -95,6 +96,8 @@ class ServicioController extends AppBaseController
      */
     public function edit($id)
     {
+        $estados =Estado::pluck('nombre','id');
+        $categorias=Categoria::pluck('nombre','id');
         $servicio = $this->servicioRepository->find($id);
 
         if (empty($servicio)) {
@@ -103,7 +106,7 @@ class ServicioController extends AppBaseController
             return redirect(route('servicios.index'));
         }
 
-        return view('servicios.edit')->with('servicio', $servicio);
+        return view('servicios.edit',compact('estados','categorias','servicio'));
     }
 
     /**
