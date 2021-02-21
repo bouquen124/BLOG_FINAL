@@ -40,3 +40,6 @@
     <a href="{{ route('ilustrables.index') }}"><i class="fa fa-edit"></i><span>Ilustrables</span></a>
 </li>
 
+
+
+

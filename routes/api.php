@@ -39,3 +39,8 @@ Route::resource('posts', 'PostAPIController');
 Route::resource('rols', 'RolAPIController');
 
 Route::resource('ilustrables', 'IlustrableAPIController');
+
+
+
+
+
