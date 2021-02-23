@@ -56,8 +56,12 @@ Route::resource('cliente_user' ,'ClienteUserController');
 Route::resource('producto_user','ProductoUserController');
 
 Route::resource('servicio_user','ServicioUserController');
+Route::resource('galeria_user','GaleriaUserController');
 
 
 
 
 
+
+
+Route::resource('galerias', 'GaleriaController');

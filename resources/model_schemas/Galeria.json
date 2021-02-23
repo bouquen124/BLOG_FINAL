@@ -12,9 +12,9 @@
         "inView": false
     },
     {
-        "name": "url",
-        "dbType": "string",
-        "htmlType": "text",
+        "name": "ilustrable_id",
+        "dbType": "integer:unsigned:foreign,ilustrables,id",
+        "htmlType": "select",
         "validations": "",
         "searchable": true,
         "fillable": true,

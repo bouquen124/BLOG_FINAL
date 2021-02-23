@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Galeria::class, function (Faker $faker) {
 
     return [
-        'url' => $faker->word,
+        'ilustrable_id' => $faker->randomDigitNotNull,
         'descripcion' => $faker->word,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')

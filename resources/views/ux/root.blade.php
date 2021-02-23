@@ -64,6 +64,7 @@
                 @yield('editcliente')
                 @yield('createproducto')
                 @yield('createproducto')
+                @yield('galeria')
 
 
             @include('ux.fragment.footer')

@@ -44,3 +44,6 @@ Route::resource('ilustrables', 'IlustrableAPIController');
 
 
 
+
+
+Route::resource('galerias', 'GaleriaAPIController');

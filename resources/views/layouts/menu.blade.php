@@ -43,3 +43,7 @@
 
 
 
+<li class="{{ Request::is('galerias*') ? 'active' : '' }}">
+    <a href="{{ route('galerias.index') }}"><i class="fa fa-edit"></i><span>Galerias</span></a>
+</li>
+

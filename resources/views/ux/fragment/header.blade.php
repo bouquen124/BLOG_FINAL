@@ -72,8 +72,10 @@
                             <nav id="main-menu" class="menu">
                                 <ul id="menu-top-menu" class="menus">
                                     
-                                    <li class="has-child {{ Request::is('/*') ? 'active' : '' }}">
-                                    <a href="{{ url('/') }}">Home</a></li>
+                                    <li class="has-child {{ Request::is('galeria_user*') ? 'active' : '' }}">
+                                    <a href="{{ url('/galeria_user') }}">Galeria</a></li>
+
+                                   
 
 
                                     <li class="has-child {{ Request::is('servicio_user*') ? 'active' : '' }}">
